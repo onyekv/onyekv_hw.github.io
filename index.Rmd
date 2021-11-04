@@ -1,7 +1,17 @@
 ---
-title: "Holy cow!"
+title:  "Welcome to my Landing Page" 
+output: 
+  html_document:
+    css: bootstrap.css
+    toc: true
+    toc_float: true
+    theme: journal
 ---
 
-### I have a webpage!
+<center>
+Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiolgy department. I like to code. Click about me to see my resume!
 
-And I can put all kinds of stuff on it!
+<img src = "headshot.jpeg" style = "width:75%">
+</center>
+
+<img src = "Midterm project.pdf">
