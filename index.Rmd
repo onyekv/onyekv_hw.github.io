@@ -21,6 +21,7 @@ Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiology dep
 <img src = "quote.jpeg" style = "width: 75%"> 
 
 ```{r setup, include=FALSE}
+#this code helped with some error messages when I was trying to knit.
 chooseCRANmirror(graphics=FALSE, ind=1)
 remove.packages("yaml")
 install.packages("yaml")
