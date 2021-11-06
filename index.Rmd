@@ -8,14 +8,15 @@ output:
 ---
 
 <center>
-Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiolgy department. I like to code. Click "About" to see my resume!
+Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiology department. I like to code. Click "About" to see my resume!
 
-<img src = "headshot.jpeg" style = "width:75%">
+<img src = "headshot.jpeg" style = "width:35%">
 </center>
 
 ---------
 <center>
 ##  **My favorite quote:**
+
 
 <img src = "quote.jpeg" style = "width: 75%"> 
 

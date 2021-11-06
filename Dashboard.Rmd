@@ -4,6 +4,8 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
+    source: embed
+  
 ---
 
 ```{r setup, include=FALSE}
@@ -21,7 +23,7 @@ Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Chart A
-##### This grouped bar shows on average, the hour that each product is ordered each day of the week. Products were limited to "Natural Spring Water", "Spring Water", "Bulgarian Yogurt", "Strawberries", "Sauvignon Blanc", "Pinot Noir".
+##### This grouped bar intends to show on average, the hour that each product is ordered each day of the week. Products were limited to "Natural Spring Water", "Spring Water", "Bulgarian Yogurt", "Strawberries", "Sauvignon Blanc", "Pinot Noir".
 ```{r}
 instacart %>%
   filter(product_name %in% c("Natural Spring Water", "Spring Water", "Bulgarian Yogurt", "Strawberries", "Sauvignon Blanc", "Pinot Noir")) %>%
@@ -34,14 +36,14 @@ instacart %>%
     mean_hour = mean(order_hour_of_day)) %>% 
   
   plot_ly( x = ~mean_hour, y =~ order_dow, color = ~product_name, type = "bar", orientation = 'h') %>% 
-  layout(yaxis = list(title = 'Order Day of Week'), xaxis = list(title = 'Mean Hour of the Day'),  colors = "viridis", barmode = 'group')
+  layout(yaxis = list(title = 'Order Day of Week'), xaxis = list(title = 'Mean Hour of the Day'),  colors = "viridis", barmode = 'group', autosize = F, width = 700, height = 350)
  
 ```
 
-Column {data-width=350}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart B
+### Chart B This figure is intended to show the rate at which items are re-ordered,for the fruit, vegetables, and packaged fruit vegetables aisle.
 ```{r, echo= FALSE, eval=FALSE}
 ##finding the total amount of items reordered##
 instacart %>% 
@@ -49,15 +51,11 @@ instacart %>%
          ) %>% filter(reordered == 1) %>% 
   mutate( total_reordered = sum(reordered))
 
-
 ##finding the total amount of ALL items reordered for the 3 aisles##
 instacart %>% 
   select(product_id, product_name, aisle, aisle_id, reordered, everything()
          ) %>% filter(reordered == 1) %>%   group_by(aisle) %>% 
   mutate( total_reordered_in_aisle = sum(reordered))%>%  filter(aisle == c("fresh vegetables", "fresh fruits", "packaged vegetables fruits")) 
-
-
-
 
 #creating the rate, the number of items order for specific aisle by the 
 instacart %>% 
@@ -67,17 +65,14 @@ instacart %>%
           aisle = factor(aisle),
           fresh_veg_reorder_rate = 91368/828824,
           packaged_reorder_rate = 51523	/828824,
-          fresh_fruit_reorder = 110782 / 828824,
-         )
+          fresh_fruit_reorder = 110782 / 828824)
 
-
-## Creating the rate at which products were reordered per aisle##
 ```
 
 
-This figure shows the rate at which items are re-ordered,for the fruit, vegetables, and packaged fruit vegetables aisle.
+
 ```{r}
-aisle<- factor(c("fruit", "veg", "packaged")) 
+aisle<- factor(c("Fruits", "Vegetables", "Packaged Fruits Vegetables")) 
 y<-  as.numeric(c(0.1336617*100, 0.1102381*100,	0.06216398*100))
 
 new_df1 <-data.frame(aisle,y)
@@ -85,18 +80,19 @@ new_df1  %>%
 
  plot_ly(
    x = ~aisle,
-   y =~ y, type = "scatter", mode = "lines+markers"
- )
+   y =~ y, type = "scatter", mode = "lines+markers") %>%  layout(yaxis = list(title = '% Products Re-ordered'), xaxis = list(title = 'Aisle'),  colors = "viridis", autosize = F, width = 500, height = 400)
+ 
 ```
 
 ### Chart C
-This figure displays the distribution of products in each aisle that were or were not reordered
+This figure intends to display the distribution of products in each aisle that were or were not reordered
 ```{r}
 instacart %>% group_by(aisle, reordered, product_id) %>%   filter(aisle %in% c("fresh vegetables", "packaged vegetables fruits"))%>%
    count(product_name)  %>%  mutate(reordered = factor(reordered)) %>% 
 plot_ly(
    x = ~aisle,
    y =~ n, 
-   color = ~reordered, split = ~reordered, type = "violin", violinmode = "group")
+   color = ~reordered, split = ~reordered, type = "violin", violinmode = "group") %>% 
+  layout(title ="Distribution of Reordered or Not Reordered products, by Aisle", yaxis = list(title = 'Number of Products'), xaxis = list(title = 'Aisle'),  colors = "viridis")
 ```
 
