@@ -5,9 +5,16 @@ navbar:
   right:
     - text: "About"
       href: about.html
+    - text: "Dashboard"
+      href: Dashboard.html
     - icon: fa-envelope fa-lg
-      href: mailto:<you@youremail.com>
+      href: mailto:<oi2142@cumc.columbia.edu>
     - icon: fa-github fa-lg
-      href: http://github.com/<YOUR_GH_NAME>/
+      href: http://github.com/onyekv/
+    - icon: fa-linkedin fa-lg
+      href: http://linkedin.com/in/onyeka-i-504a80143/
 output:
-  html_document
+  html_document:
+    theme: journal
+  
+  

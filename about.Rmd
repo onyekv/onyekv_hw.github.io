@@ -1,9 +1,72 @@
 ---
-title: "About"
+title: "About Me and My Resume"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
-### About this site
+- __Name:__ Onyeka Isamah
+- __Currently Reside:__ New York, New York 
+- __Hobbies:__ I love photography
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+#  Education 
+
+
+##### Columbia University, Mailman School of Public Health | New York, New York  			                 
+Master of Public Health in Epidemiology, Certificate in Applied Biostatistics & Public Health Data Science (GPA 3.9)
+
+
+**Leadership**: Consulting Club (Member), Healthcare Data Analytics Club (Member), American Public Health Association, Epidemiology and Statistics Section (Member) Bayada Operational Leadership Program (2017)
+
+##### West Chester University of Pennsylvania | West Chester, Pennsylvania 				            August 2017
+Bachelor of Science in Public Health: Health Promotion, Magna Cum Laude | Deans List 
+
+
+
+
+#  Experience
+
+##### IQVIA New York, New York (Summer 2021)
+**US Thought Leadership Research & Publication Intern**			
+
+- Formulated research question and designed high-level Excel databases through concatenated datasets for the purpose of understanding the social determinants of health and treatment outcomes related to mental healthcare in the United States, in order to fortify ongoing research within IQVIA’s US Thought Leadership Strategy & Portfolio team 
+-	Collaborated with colleagues within IQVIA to devise methods to strengthen project analyses. Through recommendations, conducted large-scale data analyses using IQVIA data assets, which included up to 380,000+ patients and 830,000+ mental health diagnostic codes. This was to assess any trends in time or any potential existing disparities in treatment between racial/ethnic groups
+- Highlighted key findings through the creation of 23 unique data visualization figures and communicated those insights and recommendations through a comprehensive PowerPoint presentation to the US Thought Leadership team, colleagues within IQVIA, as well as the summer internship cohort
+- Developed written narrative report which included background, methods, detailed findings for 23 individual charts & figures, and recommendations to be published internally within IQVIA
+- Leveraged SharePoint to maintain and update the Race, Ethnicity, And Cultural Heritage (REACH) Employee Resource Group website
+
+# Additional Public Health Experience
+
+##### BAYADA Home Health Care, Chester and Delaware County, PA 			(Sep 2017 – May 2020)
+**Client Services Manager, On-Call Manager**
+
+- Managed 2 teams per office of skilled clinicians and coordinated home health care for 130-150 clients in Chester and Delaware County from the referral intake process to agency discharge
+- Processed employee payroll, initiated billing for services with insurance companies, and ran applicable reports using Homecare Homebase and Tableau to investigate business marketing trends and used the results to analyze employee data and track client information. Contributed to team meetings and discussions focused on systematic process improvement, best practices, education, and decision making
+-	Developed strategic relationships with clients and their families in need of or inquiring about home health services to promote the Bayada brand. Ensured clients, family members, physicians, and other referral sources received superb and timely initiation of care within 24 to 48 hours of obtaining the physician order for skilled home health services
+
+##### Penn State University and AccessMatters, Media, PA
+
+**Lead Investigator, Internship (Summer 2017)**
+
+- Conducted and created a county-wide needs assessment at the request of the Delaware County Teen Pregnancy Prevention Coalition in association with AccessMatters
+-	Generated and disseminated 2 surveys using Qualtrics to the Delaware County population consisting of community residents, leaders, and key stakeholders; resulting in over 600 survey responses. Collected and analyzed quantitative and qualitative data, transcribed the recorded data, and composed needs assessment to report findings and enable Phase II of the study
+
+
+
+
+# Publications
+
+-	Harrell- Levy, M., Isamah, O. & Jackson, K. (2020) The lived experience of adolescent mother trauma survivors: A narrative approach.  Journal of Community Psychology: Volume 48, Issue 5, 1395-1409
+
+# Skills
+
+**Data Analysis**: SAS, Excel, SQL (Fall 2021), R (Fall 2021), STATA, SPSS, Tableau
+
+**Computer**: Excel, PowerPoint, SharePoint, Access, Qualtrics, EPIC, MS Word, Photoshop, Illustrator
+
+**Certifications**: Mental Health First AID USA (2017), Partners in Prevention (PIP) Program Certification (2016), Department of Human Services and Pennsylvania Department of Education Mandated Reporter Certification (2015)
+
+
+

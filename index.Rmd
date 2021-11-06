@@ -2,16 +2,27 @@
 title:  "Welcome to my Landing Page" 
 output: 
   html_document:
-    css: bootstrap.css
     toc: true
     toc_float: true
-    theme: journal
+    
 ---
 
 <center>
-Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiolgy department. I like to code. Click about me to see my resume!
+Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiolgy department. I like to code. Click "About" to see my resume!
 
 <img src = "headshot.jpeg" style = "width:75%">
 </center>
 
-<img src = "Midterm project.pdf">
+---------
+<center>
+##  **My favorite quote:**
+
+<img src = "quote.jpeg" style = "width: 75%"> 
+
+```{r setup, include=FALSE}
+chooseCRANmirror(graphics=FALSE, ind=1)
+remove.packages("yaml")
+install.packages("yaml")
+```
+
+
