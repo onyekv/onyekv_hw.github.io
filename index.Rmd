@@ -1,26 +1,83 @@
 ---
-title:  "Welcome to my Landing Page" 
+title: "My Journey"
 output: 
   html_document:
-    toc: true
-    toc_float: true
-    
+    toc: false
+    toc_float: false
+
 ---
 
-<center>
-Hi! My name is Onyeka Isamah. I am a second-year student in the Epidemiology department. I like to code. Click "About" to see my resume!
+<html>
+<head>
+<style>
+p {
+font-family: avenir;
+font-size: 100%;
+  border: 3px solid lightpink;
+  padding: 30px;
+}
 
-<img src = "headshot.jpeg" style = "width:35%">
+h1 {
+font-family: avenir;
+font-size: 170%;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+
+<h1> Onyeka Isamah, *MPH [Candidate]*</h1>
+
+<center>
+<img src = "IMG_2015.jpeg" style = "width:50%">
 </center>
 
----------
 <center>
-##  **My favorite quote:**
+
+<p class="text-muted">
 
 
-<img src = "quote.jpeg" style = "width: 75%"> 
+Hi! My name is **Onyeka**. I will be getting my Masters in Public Health [Epidemiology w/ Advanced Certificate in Applied Biostats and Public Health Data Science from Columbia University.</p>
 
-```{r setup, include=FALSE}
+<p class="text-muted">
+I really enjoy coding and continuing to learn about R. Outside of building myself as an aspiring Data Scientist, I love to take photos. I haven't taken any in quite sometime now, but I'm hoping as a phase out of academia, I can spend more time developing my hobby.
+Anyways, click the menu button to learn more about me! </p>
+
+
+
+<blockquote class="blockquote-reverse">
+  <p>It's the possibility of having a dream come true that makes life interesting.</p>
+  <small>Paulo Coehlo* <cite title="The Alchemist"> The Alchemist </cite></small>
+</blockquote>
+
+
+
+</center>
+
+
+<center>
+<img src = "IMG_2259.jpeg" style = "width:45%">
+<img src = "IMG_2769.jpeg" style = "width:45%">
+</center>
+
+
+<center>
+<img src = "IMG_5135.jpeg" style = "width:45%">
+<img src = "IMG_5150.jpeg" style = "width:45%">
+</center>
+
+
+
+
+
+---------
+
+
+```{r setup1, include=FALSE}
 #this code helped with some error messages when I was trying to knit.
 chooseCRANmirror(graphics=FALSE, ind=1)
 remove.packages("yaml")

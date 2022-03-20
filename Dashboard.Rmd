@@ -25,25 +25,89 @@ Column {data-width=650}
 ### Chart A
 ##### This grouped bar intends to show on average, the hour that each product is ordered each day of the week. Products were limited to "Natural Spring Water", "Spring Water", "Bulgarian Yogurt", "Strawberries", "Sauvignon Blanc", "Pinot Noir".
 ```{r}
+
 instacart %>%
   filter(product_name %in% c("Natural Spring Water", "Spring Water", "Bulgarian Yogurt", "Strawberries", "Sauvignon Blanc", "Pinot Noir")) %>%
-  group_by(product_name, order_dow)  %>%
   mutate(
-    order_dow = 
-      recode_factor(order_dow,
+    order_dow = recode_factor(order_dow,
+        "0" = "Sunday", "1" = "Monday", "2" = "Tuesday", "3" = "Wednesday", "4"= "Thursday", "5" = "Friday", "6" = "Saturday")) %>%   group_by(department, order_dow)  %>%
+  summarize(
+    mean_hour = mean(order_hour_of_day)) %>% 
+  
+  plot_ly( x = ~mean_hour, y =~ order_dow, color = ~department, type = "bar", orientation = 'h') %>% 
+  layout(yaxis = list(title = 'Order Day of Week'), xaxis = list(title = 'Mean Hour of the Day'),  colors = "viridis", barmode = 'group', autosize = F, width = 700, height = 350)
+ 
+```
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart B
+##### Top 3 departments 
+
+```{r}
+try2 = instacart %>% filter(department == c("produce", "dairy eggs", "snacks"))%>%
+  group_by(product_id, product_name, department_id, department)%>%
+summarise(count = sum(product_id)) 
+
+try2 %>%  group_by(department) %>% 
+ slice(1:3)  %>%
+  mutate (department= factor(department, levels = c("snacks", "dairy eggs", "produce"))) %>%
+    arrange(desc(count)) %>% 
+
+
+
+  
+    plot_ly( x = ~count, y =~ department, type = "bar", orientation = 'h') %>% 
+  layout(yaxis = list(title = 'Product Name', categoryarray = ~department, categoryorder = "array"), xaxis = list(title = 'Order Frequency'),colors = "viridis", barmode = 'group', autosize = F, width = 700, height = 350) 
+```
+
+### Chart C
+##### Top 3 departments with the most products
+```{r}
+try = instacart %>% filter(department == c("produce", "dairy eggs", "snacks"))%>%
+  group_by(product_id, product_name, department_id, department)%>%
+summarise(count = sum(product_id)) 
+
+data_new2 <- try %>% mutate (department= factor(department, levels = c("snacks", "dairy eggs", "produce"))) %>% 
+  arrange(desc(count)) %>% 
+  group_by(department) %>%
+  slice(1:3)
+
+
+
+
+
+
+data_new2 %>% arrange(desc(count, department)) %>% 
+  
+    plot_ly( x = ~count, y =~ product_name, color = ~department, type = "bar", orientation = 'h')%>% 
+  layout(yaxis = list(title = 'Product Name', categoryarray = ~product_name, categoryorder = "array"), xaxis = list(title = 'Order Frequency'),colors = "viridis", barmode = 'group', autosize = F, width = 700, height = 350) 
+```
+
+### Chart D
+
+```{r}
+instacart %>% filter(department == c("produce", "dairy eggs", "snacks", "beverages", "frozen")) %>% 
+    group_by(department, order_dow)  %>%
+  mutate(department = factor(department),
+    order_dow =  recode_factor(order_dow,
         "0" = "Sunday", "1" = "Monday", "2" = "Tuesday", "3" = "Wednesday", "4"= "Thursday", "5" = "Friday", "6" = "Saturday")) %>% 
   summarize(
     mean_hour = mean(order_hour_of_day)) %>% 
   
-  plot_ly( x = ~mean_hour, y =~ order_dow, color = ~product_name, type = "bar", orientation = 'h') %>% 
+  
+  plot_ly( x = ~mean_hour, y =~ order_dow, color = ~department, type = "bar", orientation = 'h') %>% 
   layout(yaxis = list(title = 'Order Day of Week'), xaxis = list(title = 'Mean Hour of the Day'),  colors = "viridis", barmode = 'group', autosize = F, width = 700, height = 350)
  
 ```
 
+
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart B This figure is intended to show the rate at which items are re-ordered,for the fruit, vegetables, and packaged fruit vegetables aisle.
+### Chart E 
+
+##### This figure is intended to show the rate at which items are re-ordered,for the fruit, vegetables, and packaged fruit vegetables aisle.
 ```{r, echo= FALSE, eval=FALSE}
 ##finding the total amount of items reordered##
 instacart %>% 
@@ -69,7 +133,7 @@ instacart %>%
 
 ```
 
-
+### Chart F
 
 ```{r}
 aisle<- factor(c("Fruits", "Vegetables", "Packaged Fruits Vegetables")) 
@@ -84,7 +148,7 @@ new_df1  %>%
  
 ```
 
-### Chart C
+### Chart G
 This figure intends to display the distribution of products in each aisle that were or were not reordered
 ```{r}
 instacart %>% group_by(aisle, reordered, product_id) %>%   filter(aisle %in% c("fresh vegetables", "packaged vegetables fruits"))%>%
@@ -95,4 +159,5 @@ plot_ly(
    color = ~reordered, split = ~reordered, type = "violin", violinmode = "group") %>% 
   layout(title ="Distribution of Reordered or Not Reordered products, by Aisle", yaxis = list(title = 'Number of Products'), xaxis = list(title = 'Aisle'),  colors = "viridis")
 ```
+
 
